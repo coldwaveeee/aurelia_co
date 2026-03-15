@@ -16,7 +16,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
   isBestseller: true,
   isNew: true,
   isSale: false,
-  image: "images/blog_1jpg",
+  image: "https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Clothing",
   amazonUrl: "https://www.amazon.com/BAGSMART-Lightweight-Compartments-Shoulder-Handbag/dp/B0CS2R1S1B/ref=pd_ci_mcx_mh_mcx_views_0_image?pd_rd_w=N8TYt&content-id=amzn1.sym.781fe6e1-9487-4a74-b81e-5a879e5ec273%3Aamzn1.symc.c3d5766d-b606-46b8-ab07-1d9d1da0638a&pf_rd_p=781fe6e1-9487-4a74-b81e-5a879e5ec273&pf_rd_r=EEV4AY37DFMAGDCR61RR&pd_rd_wg=PIbwb&pd_rd_r=b2650f24-d424-49a6-9e70-fea3eeac44c1&pd_rd_i=B0CS2R1S1B&th=1&psc=1"
 },
   { 

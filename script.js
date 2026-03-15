@@ -30,7 +30,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
     isBestseller: true, 
     isNew: false, 
     isSale: true, 
-    image: "images/on_sale_1.jpg",
+    image: "https://images.pexels.com/photos/38537/woodland-road-falling-leaf-natural-38537.jpeg",
     amazonUrl: "https://www.amazon.com/dp/B07X5Y9Z3K"
   },
   { 

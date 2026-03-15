@@ -16,7 +16,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
   isBestseller: true,
   isNew: true,
   isSale: false,
-  image: "https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Clothing",
+  image: "images/on_sale_3.jpg",
   amazonUrl: "https://www.amazon.com/BAGSMART-Lightweight-Compartments-Shoulder-Handbag/dp/B0CS2R1S1B/ref=pd_ci_mcx_mh_mcx_views_0_image?pd_rd_w=N8TYt&content-id=amzn1.sym.781fe6e1-9487-4a74-b81e-5a879e5ec273%3Aamzn1.symc.c3d5766d-b606-46b8-ab07-1d9d1da0638a&pf_rd_p=781fe6e1-9487-4a74-b81e-5a879e5ec273&pf_rd_r=EEV4AY37DFMAGDCR61RR&pd_rd_wg=PIbwb&pd_rd_r=b2650f24-d424-49a6-9e70-fea3eeac44c1&pd_rd_i=B0CS2R1S1B&th=1&psc=1"
 },
   { 
@@ -30,7 +30,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
     isBestseller: true, 
     isNew: false, 
     isSale: true, 
-    image: "https://images.pexels.com/photos/38537/woodland-road-falling-leaf-natural-38537.jpeg",
+    image: "images/on_sale_1.jpg",
     amazonUrl: "https://www.amazon.com/dp/B07X5Y9Z3K"
   },
   { 
@@ -58,7 +58,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
     isBestseller: false, 
     isNew: true, 
     isSale: false, 
-    image: "images/bag2.png",
+    image: "images/on_sale_4.jpg",
     amazonUrl: "https://www.amazon.com/dp/B09X5Y9Z3K"
   },
   { 

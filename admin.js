@@ -19,7 +19,7 @@ let products = JSON.parse(localStorage.getItem('adminProducts')) || [
     id: 2, 
     name: "Premium Leather Executive Tote", 
     reviews: 856, 
-    image: "https://images.pexels.com/photos/38537/woodland-road-falling-leaf-natural-38537.jpeg", 
+    image: "https://images.pexels.com/photos/38537/woodland-road-falling-leaf-natural-38537.jpeg?cs=srgb&dl=pexels-pixabay-38537.jpg&fm=jpg&_gl=1*zzeng8*_ga*MTY0Mjg1MzAwNS4xNzczNjA3NjE2*_ga_8JE65Q40S6*czE3NzM2MDc2MTUkbzEkZzEkdDE3NzM2MDc3MjgkajU5JGwwJGgw", 
     price: 89.99, 
     category: "tote", 
     description: "Sophisticated leather tote for professionals.", 

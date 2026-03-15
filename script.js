@@ -58,7 +58,7 @@ let products = JSON.parse(localStorage.getItem('luxeProducts')) || [
     isBestseller: false, 
     isNew: true, 
     isSale: false, 
-    image: "images/on_sale_4.jpg",
+    image: "images/bag2.png",
     amazonUrl: "https://www.amazon.com/dp/B09X5Y9Z3K"
   },
   { 

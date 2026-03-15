@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIA & CO · Admin Dashboard</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Admin CSS -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>AURELIA & CO</h2>
+        <p>Admin Dashboard</p>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#dashboard" id="dashboardTab"><i class="fas fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li><a href="#products" id="productsTab"><i class="fas fa-box"></i> <span>Products</span></a></li>
+          <li><a href="#categories" id="categoriesTab"><i class="fas fa-tags"></i> <span>Categories</span></a></li>
+          <li><a href="#orders" id="ordersTab"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+          <li><a href="#customers" id="customersTab"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+          <li><a href="#settings" id="settingsTab"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+          <li><a href="index.html" target="_blank"><i class="fas fa-external-link-alt"></i> <span>View Site</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Logged in as Admin</p>
+        <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="admin-header">
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="admin-search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search products..." id="searchInput">
+        </div>
+        <div class="admin-profile">
+          <i class="fas fa-bell" id="notificationBell"></i>
+          <i class="fas fa-user-circle"></i>
+          <span>Admin</span>
+        </div>
+      </header>
+
+      <!-- Dashboard View -->
+      <div id="dashboardView" class="view active">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Total Products</h3>
+              <p class="stat-number" id="totalProducts">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Categories</h3>
+              <p class="stat-number" id="totalCategories">6</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Bestsellers</h3>
+              <p class="stat-number" id="totalBestsellers">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="stat-details">
+              <h3>On Sale</h3>
+              <p class="stat-number" id="totalSale">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Products -->
+        <div class="recent-products">
+          <h2>Recent Products</h2>
+          <div class="recent-grid" id="recentProducts">
+            <!-- Recent products will appear here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Products View -->
+      <div id="productsView" class="view">
+        <!-- Action Buttons -->
+        <div class="action-bar">
+          <button class="btn btn-primary" id="addProductBtn">
+            <i class="fas fa-plus"></i> Add New Product
+          </button>
+          <button class="btn btn-secondary" id="exportBtn">
+            <i class="fas fa-download"></i> Export
+          </button>
+          <button class="btn btn-secondary" id="importBtn">
+            <i class="fas fa-upload"></i> Import
+          </button>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All Products</button>
+          <button class="filter-tab" data-filter="tote">Totes</button>
+          <button class="filter-tab" data-filter="clutch">Clutches</button>
+          <button class="filter-tab" data-filter="crossbody">Crossbody</button>
+          <button class="filter-tab" data-filter="satchel">Satchels</button>
+          <button class="filter-tab" data-filter="hobo">Hobos</button>
+          <button class="filter-tab" data-filter="wristlet">Wristlets</button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="table-container">
+          <table class="products-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Reviews</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Products will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Categories View -->
+      <div id="categoriesView" class="view">
+        <div class="action-bar">
+          <button class="btn btn-primary" id="addCategoryBtn">
+            <i class="fas fa-plus"></i> Add Category
+          </button>
+        </div>
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Categories will appear here -->
+        </div>
+      </div>
+
+      <!-- Orders View -->
+      <div id="ordersView" class="view">
+        <div class="empty-state">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>No Orders Yet</h3>
+          <p>Customer orders will appear here</p>
+        </div>
+      </div>
+
+      <!-- Customers View -->
+      <div id="customersView" class="view">
+        <div class="empty-state">
+          <i class="fas fa-users"></i>
+          <h3>No Customers Yet</h3>
+          <p>Customer data will appear here</p>
+        </div>
+      </div>
+
+      <!-- Settings View -->
+      <div id="settingsView" class="view">
+        <div class="settings-form">
+          <h2>Store Settings</h2>
+          <div class="form-group">
+            <label>Store Name</label>
+            <input type="text" id="storeName" value="AURELIA & CO">
+          </div>
+          <div class="form-group">
+            <label>Currency</label>
+            <select id="storeCurrency">
+              <option value="USD" selected>USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="saveSettings">Save Settings</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Product Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add New Product</h2>
+        <span class="close-modal" id="closeProductModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="productForm" enctype="multipart/form-data">
+          <input type="hidden" id="productId">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productName">Product Name *</label>
+              <input type="text" id="productName" required placeholder="e.g. Minimalist Canvas Tote">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productCategory">Category *</label>
+              <select id="productCategory" required>
+                <option value="">Select Category</option>
+                <option value="tote">Tote</option>
+                <option value="clutch">Clutch</option>
+                <option value="crossbody">Crossbody</option>
+                <option value="satchel">Satchel</option>
+                <option value="hobo">Hobo</option>
+                <option value="wristlet">Wristlet</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="productPrice">Price ($) *</label>
+              <input type="number" id="productPrice" step="0.01" min="0" required placeholder="29.99">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productReviews">Reviews Count</label>
+              <input type="number" id="productReviews" min="0" value="0" placeholder="1234">
+            </div>
+            
+            <div class="form-group">
+              <label for="productImage">Product Image</label>
+              <input type="file" id="productImage" accept="image/*">
+              <small>Upload product image (JPG, PNG, GIF)</small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="productDescription">Description</label>
+              <textarea id="productDescription" rows="3" placeholder="Product description..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" id="productBestseller"> Bestseller
+              </label>
+              <label>
+                <input type="checkbox" id="productNew"> New Arrival
+              </label>
+              <label>
+                <input type="checkbox" id="productSale"> On Sale
+              </label>
+              <label>
+                <input type="checkbox" id="productInStock" checked> In Stock
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group image-preview" id="imagePreviewContainer" style="display: none;">
+            <label>Image Preview:</label>
+            <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; max-height: 200px;">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="saveProductBtn">Save Product</button>
+            <button type="button" class="btn btn-secondary" id="cancelProductModal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal" id="deleteModal">
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <h2>Confirm Delete</h2>
+        <span class="close-modal" id="closeDeleteModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete <strong id="deleteProductName"></strong>?</p>
+        <p class="text-warning">This action cannot be undone!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+        <button class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Preview Modal -->
+  <div class="modal" id="imagePreviewModal">
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <h2>Product Image</h2>
+        <span class="close-modal" id="closeImageModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <img id="fullImagePreview" src="" alt="Product Image" style="width: 100%;">
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

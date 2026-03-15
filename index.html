@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIA & CO · premium collection 2025</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header / navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo" id="homeLink">AURELIA & CO</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link" data-category="new">New</a></li>
+          <li><a href="#" class="nav-link" data-category="bestsellers">Bestsellers</a></li>
+          <li><a href="#" class="nav-link" data-category="categories">Categories</a></li>
+          <li><a href="#" class="nav-link" data-category="sale">Sale</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <i class="fas fa-search" id="searchIcon"></i>
+        <i class="far fa-heart" id="wishlistIcon"></i>
+        <div class="cart-icon-container">
+          <i class="fas fa-shopping-bag" id="cartIcon"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- hero / premium banner -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="premium-badge">Premium Collection 2025</span>
+        <h1>Elevate Your Style<br>with <span class="accent">AURELIA & CO</span></h1>
+        <p>Discover our curated collection of premium women's bags. From elegant totes to sophisticated clutches, find the perfect accessory to complement your style.</p>
+        <div class="hero-stats">
+          <div><strong>500+</strong> <span>Styles</span></div>
+          <div><strong>Top Rated</strong> <span>Quality</span></div>
+          <div><strong>New</strong> <span>Arrivals</span></div>
+        </div>
+        <div class="hero-price">Starting from <strong>$29.99</strong></div>
+        <a href="#" class="btn btn-primary" id="shopNowBtn">Shop now <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-image">
+        <img src="images/" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- categories section -->
+  <section class="section" id="categoriesSection">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-subtitle">Find your perfect bag from our curated collections</p>
+      <div class="category-grid">
+        <div class="category-card" data-category="tote">
+          <div class="category-img tote"></div>
+          <h3>Tote bags</h3>
+          <p class="category-count">12 styles</p>
+        </div>
+        <div class="category-card" data-category="clutch">
+          <div class="category-img clutch"></div>
+          <h3>Clutches</h3>
+          <p class="category-count">8 styles</p>
+        </div>
+        <div class="category-card" data-category="crossbody">
+          <div class="category-img crossbody"></div>
+          <h3>Crossbody</h3>
+          <p class="category-count">15 styles</p>
+        </div>
+        <div class="category-card" data-category="satchel">
+          <div class="category-img satchel"></div>
+          <h3>Satchels</h3>
+          <p class="category-count">10 styles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- featured collection (all products) -->
+  <section class="section" id="productsSection">
+    <div class="container">
+      <h2 class="section-title" id="collectionTitle">Featured Collection</h2>
+      <p class="section-subtitle" id="collectionSubtitle">27 premium styles selected for you</p>
+      
+      <!-- filter buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tote">Totes</button>
+        <button class="filter-btn" data-filter="clutch">Clutches</button>
+        <button class="filter-btn" data-filter="crossbody">Crossbody</button>
+        <button class="filter-btn" data-filter="satchel">Satchels</button>
+        <button class="filter-btn" data-filter="hobo">Hobos</button>
+        <button class="filter-btn" data-filter="wristlet">Wristlets</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- products will be injected via javascript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- product detail modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-grid">
+        <div class="modal-image" id="modalImage">
+          <img src="images/on_sale_3.jpg" alt="">
+        </div>
+        <div class="modal-details">
+          <h2 id="modalTitle"></h2>
+          <div class="modal-reviews" id="modalReviews"></div>
+          <div class="modal-price" id="modalPrice"></div>
+          <div class="modal-stock" id="modalStock">In Stock</div>
+          <p class="modal-description" id="modalDescription"></p>
+          <div class="modal-actions">
+            <button class="btn btn-primary" id="addToCartModal">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            <button class="btn btn-wishlist" id="addToWishlistModal"><i class="far fa-heart"></i> Wishlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cart sidebar (hidden by default) -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+      <i class="fas fa-times" id="closeCart"></i>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn" id="checkoutBtn">
+        <i class="fas fa-lock"></i> Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- floating admin quick access -->
+  <div class="admin-quick-access" id="adminQuickAccess">
+    <button class="admin-quick-btn" id="adminQuickBtn">
+      <i class="fas fa-tools"></i>
+    </button>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 AURELIA & CO. All rights reserved.</p>
+      <!-- Admin Link in Footer -->
+      <div class="footer-links">
+        <a href="admin.html" class="admin-link" target="_blank">
+          <i class="fas fa-lock"></i> Admin Dashboard
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
